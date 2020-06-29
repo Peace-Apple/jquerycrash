@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="main.css">
     <title>JQueryTut</title>
 </head>
 <body>
-    
+    <div id="about">
+
+    </div>
+    <button type="button" id="show">Show</button>
+    <button type="button" id="hide">Hide</button>
+    <button type="button" id="toggle">Toggle</button>
+    <button type="button" id="getjson">Get Json</button>
+    <button type="button" id="getgame">Get Game</button>
+    <input type="text" class="power" value="">
+
+    <script>
+        $(document).ready(function(){ //we are calling the ready method to ensure the document is fully ready before calling the rest othe the html elements
+            $('#about').click(function(){
+                if($(this).html()==='You clicked me!'){
+                    $(this).html('Click me again!');
+                } else {
+                    $(this).html('You clicked me!'); //how we set the elements inner html
+                }  
+            });
+            $('#about').hover(function(){
+                $(this).css('background-color', 'lightblue');
+            });
+            $('#about').mouseleave(function(){
+                $(this).css('background-color', 'lightgreen');
+            });
+            $('#show').click(function(){
+                $('#about').show();
+            });
+            $('#hide').click(function(){
+                $('#about').hide();
+            });
+            $('#toggle').click(function(){
+                $('#about').toggle();
+            });
+            $('.power').keyup(function(){
+                $('#about').html($(this).val()); //will change what's in our div to whatever the user is typing
+            });
+            $('#getjson').click(function(){
+                $.ajax({
+                    url: "games.json",
+                    success: function(result){
+                        $('#about').html(JSON.stringify(result, null, 4)); //convert object back to text //we are setting what we get from result into the about div
+                    }
+                });
+            });
+            $('#getgame').click(function(){
+                $.ajax({
+                    url: "games.json",
+                    success: function(result){
+                        var games = result.games[0].title;
+                        $('#about').html(games);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
