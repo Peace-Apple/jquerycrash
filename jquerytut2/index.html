@@ -71,10 +71,22 @@
     </div>
 
     <div id="div2" style="width: 90px; height: 60px; display:none; background-color: green;"></div>
+
+    <div id="drag">
+        <p>Drag me around baby!</p>
+    </div>
+
+    <img src="images/pupy1.jpeg" id="img1">
+
+    <div id="drop">
+        <p>My Home</p>
+    </div>
+
+    <input id="date" type="text" size="10">
    
     <!-- Do JQuery -->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function(){ //shorthand could just be $(function(){});
             // Selectors
             $('h1').css('color', ('green'));
             $('[href]').css('color', 'red');
@@ -94,21 +106,21 @@
                 border: '3px solid black'
             };
             $('h1').css(design);
-            $('img').attr('border', '4px solid black');
+            $('.puppies img').attr('border', '4px solid black');
 
             $('div.inputDiv button').click(function(){
                 alert('Value:' + $('#sometext').val());
             });
             $('div#butt2 button').click(function(){
-                $('img').addClass('styleClass');
+                $('.puppies img').addClass('styleClass');
             });
             $('div#butt3 button').click(function(){
-                $('img').removeClass('styleClass');
+                $('.puppies img').removeClass('styleClass');
             });
             $('div#butt4 button').click(function(){
-                $('img').toggleClass('styleClass');
+                $('.puppies img').toggleClass('styleClass');
             });
-            $('img').click(function(){
+            $('.puppies img').click(function(){
                 $(this).hide();
             });
             $('input#press').on('keypress', function(){
@@ -136,6 +148,10 @@
             $('div#toggle button').on('click', function(){
                 $('#div2').slideToggle('slow');
             });
+            $('#drag').draggable();
+            $('#img1').draggable();
+            $('#drop').droppable();
+            $('#date').datepicker();
         });
     
     </script>
