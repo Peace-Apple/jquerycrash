@@ -20,13 +20,58 @@
         <li>Black</li>
         <li>White</li>
     </ul>
-
-    <div class="puppies">
-        <img src="images/pupy1.jpeg">
-        <img src="images/pupy2.jpeg">
-        <img src="images/pupy3.jpeg">
+    <div class="inputDiv">
+        <input type="text" id="sometext" value="">
+        <button>Submit</button>
     </div>
 
+    <div class="puppies">
+        <img src="images/pupy1.jpeg" id="one">
+        <img src="images/pupy2.jpeg" id="two">
+        <img src="images/pupy3.jpeg" id="three">
+    </div>
+
+    <div id="butt2">
+        <button>Add Class</button>
+    </div>
+    <div id="butt3">
+        <button>Remove Class</button>
+    </div>
+    <div id="butt4">
+        <button>Toggle Class</button>
+    </div>
+    <div id="butt5">
+        <button>Bye</button>
+    </div>
+    <p id="p2">Start</p>
+
+    <input id="press" type="text" size="10">
+
+    <div id="ug">
+        <button>Oh! Uganda</button>
+    </div>
+
+    <div class="fadeIn">
+        <div id="wan" style="width: 2200; height: 60px; display: none; background-color: black;"></div>
+        <div id="too" style="width: 2200; height: 60px; display: none; background-color: yellow;"></div>
+        <div id="free" style="width: 2200; height: 60px; display: none; background-color: red;"></div>
+        <div id="four" style="width: 2200; height: 60px; display: none; background-color: black;"></div>
+        <div id="five" style="width: 2200; height: 60px; display: none; background-color: yellow;"></div>
+        <div id="six" style="width: 2200; height: 60px; display: none; background-color: red;"></div>
+    </div>
+
+    <div id="up">
+        <button>SlideUp</button>
+    </div>
+    <div id="down">
+        <button>SlideDown</button>
+    </div>
+    <div id="toggle">
+        <button>SlideToggle</button>
+    </div>
+
+    <div id="div2" style="width: 90px; height: 60px; display:none; background-color: green;"></div>
+   
     <!-- Do JQuery -->
     <script>
         $(document).ready(function(){
@@ -50,6 +95,47 @@
             };
             $('h1').css(design);
             $('img').attr('border', '4px solid black');
+
+            $('div.inputDiv button').click(function(){
+                alert('Value:' + $('#sometext').val());
+            });
+            $('div#butt2 button').click(function(){
+                $('img').addClass('styleClass');
+            });
+            $('div#butt3 button').click(function(){
+                $('img').removeClass('styleClass');
+            });
+            $('div#butt4 button').click(function(){
+                $('img').toggleClass('styleClass');
+            });
+            $('img').click(function(){
+                $(this).hide();
+            });
+            $('input#press').on('keypress', function(){
+                $('p#p2').hide();
+            });
+            $('div#butt5 button').click(function(){
+                $('#one').fadeOut('slow');
+                $('#two').fadeOut('fast');
+                $('#three').fadeOut('slow');
+            });
+            $('div#ug button').click(function(){
+                $('#wan').fadeIn('slow');
+                $('#too').fadeIn('slow');
+                $('#free').fadeIn('slow');
+                $('#four').fadeIn('slow');
+                $('#five').fadeIn('slow');
+                $('#six').fadeIn('slow');
+            });
+            $('div#up button').on('click', function(){
+                $('#div2').slideUp('slow');
+            });
+            $('div#down button').on('click', function(){
+                $('#div2').slideDown('slow');
+            });
+            $('div#toggle button').on('click', function(){
+                $('#div2').slideToggle('slow');
+            });
         });
     
     </script>
