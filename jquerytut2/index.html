@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/lightness/jquery-ui.css">
+    <link rel="stylesheet" href="index.css">
     <title>JQuery</title>
 </head>
 <body>
@@ -20,16 +21,37 @@
         <li>White</li>
     </ul>
 
+    <div class="puppies">
+        <img src="images/pupy1.jpeg">
+        <img src="images/pupy2.jpeg">
+        <img src="images/pupy3.jpeg">
+    </div>
+
     <!-- Do JQuery -->
     <script>
-        // Selectors
-        $('h1').css('color', ('green'));
-        $('[href]').css('color', 'red');
-        $('ul li').css('list-style', 'none');
-        $('a').css('text-decoration', 'none');
+        $(document).ready(function(){
+            // Selectors
+            $('h1').css('color', ('green'));
+            $('[href]').css('color', 'red');
+            $('ul li').css('list-style', 'none');
+            $('a').css('text-decoration', 'none');
 
-        // Methods
-        
+            // Methods
+            $('ul').before('<h2>My color list</h2>');
+            $('ul').after('<h2>Greeen is my best color</h2>');
+            $('li').text();
+            // $('p').text('Apple Lurve');
+            $('li:last').html('Red');
+            $('li:last').after('Magenta');
+            let design = {
+                color: 'blue',
+                background: 'green',
+                border: '3px solid black'
+            };
+            $('h1').css(design);
+            $('img').attr('border', '4px solid black');
+        });
+    
     </script>
     
 </body>
